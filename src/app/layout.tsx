@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -31,7 +32,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="antialiased">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/icon-192.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="JP Flashcards" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
+      </head>
       <body className={`${notoSansJP.className} overflow-x-hidden`}>
+        <ServiceWorkerRegistration />
         {children}
       </body>
     </html>

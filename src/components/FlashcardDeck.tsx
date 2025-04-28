@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FlashcardData } from '@/types';
 import Flashcard from './Flashcard';
 import Controls from './Controls';
@@ -20,7 +20,8 @@ export default function FlashcardDeck({ cards }: FlashcardDeckProps) {
     setShuffledCards([...cards]);
   }, [cards]);
 
-  const goToNextCard = () => {
+  // Memoize functions to prevent recreation on each render
+  const goToNextCard = useCallback(() => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
@@ -28,9 +29,9 @@ export default function FlashcardDeck({ cards }: FlashcardDeckProps) {
       setCurrentIndex((prev) => (prev === shuffledCards.length - 1 ? 0 : prev + 1));
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [isTransitioning, shuffledCards.length]);
 
-  const goToPreviousCard = () => {
+  const goToPreviousCard = useCallback(() => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
@@ -38,9 +39,9 @@ export default function FlashcardDeck({ cards }: FlashcardDeckProps) {
       setCurrentIndex((prev) => (prev === 0 ? shuffledCards.length - 1 : prev - 1));
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [isTransitioning, shuffledCards.length]);
 
-  const shuffleCards = () => {
+  const shuffleCards = useCallback(() => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
@@ -57,7 +58,7 @@ export default function FlashcardDeck({ cards }: FlashcardDeckProps) {
       setCurrentIndex(0);
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [isTransitioning, shuffledCards]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -77,7 +78,7 @@ export default function FlashcardDeck({ cards }: FlashcardDeckProps) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [shuffledCards.length, isTransitioning]);
+  }, [goToNextCard, goToPreviousCard, shuffleCards]);
 
   // Handle swipe gestures for mobile
   useEffect(() => {
@@ -112,7 +113,7 @@ export default function FlashcardDeck({ cards }: FlashcardDeckProps) {
       document.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [shuffledCards.length, isTransitioning]);
+  }, [goToNextCard, goToPreviousCard]);
 
   if (shuffledCards.length === 0) {
     return (
