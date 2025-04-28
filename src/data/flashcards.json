@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "japanese": {
+      "kanji": "日本語",
+      "reading": "にほんご"
+    },
+    "english": "Japanese language"
+  },
+  {
+    "id": "2",
+    "japanese": {
+      "kanji": "猫",
+      "reading": "ねこ"
+    },
+    "english": "Cat"
+  },
+  {
+    "id": "3",
+    "japanese": {
+      "kanji": "犬",
+      "reading": "いぬ"
+    },
+    "english": "Dog"
+  },
+  {
+    "id": "4",
+    "japanese": {
+      "kanji": "水",
+      "reading": "みず"
+    },
+    "english": "Water"
+  },
+  {
+    "id": "5",
+    "japanese": {
+      "kanji": "火",
+      "reading": "ひ"
+    },
+    "english": "Fire"
+  },
+  {
+    "id": "6",
+    "japanese": {
+      "kanji": "山",
+      "reading": "やま"
+    },
+    "english": "Mountain"
+  },
+  {
+    "id": "7",
+    "japanese": {
+      "kanji": "川",
+      "reading": "かわ"
+    },
+    "english": "River"
+  },
+  {
+    "id": "8",
+    "japanese": {
+      "kanji": "食べる",
+      "reading": "たべる"
+    },
+    "english": "To eat"
+  },
+  {
+    "id": "9",
+    "japanese": {
+      "kanji": "飲む",
+      "reading": "のむ"
+    },
+    "english": "To drink"
+  },
+  {
+    "id": "10",
+    "japanese": {
+      "kanji": "見る",
+      "reading": "みる"
+    },
+    "english": "To see"
+  },
+  {
+    "id": "11",
+    "japanese": {
+      "kanji": "聞く",
+      "reading": "きく"
+    },
+    "english": "To hear/listen"
+  },
+  {
+    "id": "12",
+    "japanese": {
+      "kanji": "本",
+      "reading": "ほん"
+    },
+    "english": "Book"
+  },
+  {
+    "id": "13",
+    "japanese": {
+      "kanji": "車",
+      "reading": "くるま"
+    },
+    "english": "Car"
+  },
+  {
+    "id": "14",
+    "japanese": {
+      "kanji": "電車",
+      "reading": "でんしゃ"
+    },
+    "english": "Train"
+  },
+  {
+    "id": "15",
+    "japanese": {
+      "kanji": "学校",
+      "reading": "がっこう"
+    },
+    "english": "School"
+  }
+]
